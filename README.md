@@ -1,10 +1,11 @@
 # Cookie Monster
 
-Welcome to "Cookie-Monster"! This software is designed to be installed by a victim, at the discretion of the attacker. Once installed, "Cookie-Monster" will locate the victim's sqlite3 database and encrypt it. The encrypted file will then be sent over an HTTP connection back to the command and control server. It is important to note that this software is intended for educational purposes only and should not be used for any illegal or malicious activities. Please use this software responsibly and ensure that you have the necessary permissions before using it on any system.
+Welcome to "Cookie-Monster"! This software is designed to be installed by a victim, at the discretion of the attacker. Once installed, "Cookie-Monster" will locate the victim's sqlite3 database and encrypt it. The encrypted file will then be sent over an HTTP connection back to the command and control server. It is important to note that this software is intended for educational purposes only and should not be used for any illegal or malicious activities. Please use this software responsibly and ensure that you have the necessary permissions before using it on any system. 
 
-Written in Go
+By default, the Cookies database file used by Google Chrome is not encrypted. This means that if an attacker gains access to the file, they could potentially read the data stored in the cookies, including sensitive information such as login credentials and session tokens. This repository demonstrates exactly that.
 
-Target downloads binary executable, Cookie-Monster finds the session cookies and relays them back to CC.
+
+Target downloads binary executable, Cookie-Monster finds the session cookies, encrypts the contents with AES, then base64 encodes. Cooke-Monster then relays the base64 string to the hosts CC.
 
 Steals a users session cookies to impersonate a browser for session hijacking.
 
