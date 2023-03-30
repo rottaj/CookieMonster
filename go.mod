@@ -1,4 +1,4 @@
-module github.com/rottaj/Cookie-Monster
+module github.com/rottaj/CookieMonster
 
 go 1.20
 

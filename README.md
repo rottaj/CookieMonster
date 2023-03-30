@@ -13,13 +13,13 @@ The Target downloads a binary executable, Cookie-Monster finds the session cooki
 ## Chrome cookie locations:
 
 <h3>macOS</h3>
-/Users/[user]/Library/Application Support/Google/Chrome/Default/Cookies
+`/Users/[user]/Library/Application Support/Google/Chrome/Default/Cookies`
 
 <h3>Linux</h3>
-/home/[user]/.config/google-chrome/Default/Cookies
+`/home/[user]/.config/google-chrome/Default/Cookies`
 
 <h3>Windows</h3>
-C:\Users[user]\AppData\Local\Google\Chrome\User Data\Default\Cookies
+`C:\Users[user]\AppData\Local\Google\Chrome\User Data\Default\Cookies`
 
 
 

