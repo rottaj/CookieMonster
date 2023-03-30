@@ -1,5 +1,7 @@
 # Cookie Monster
 
+Welcome to "Cookie-Monster"! This software is designed to be installed by a victim, at the discretion of the attacker. Once installed, "Cookie-Monster" will locate the victim's sqlite3 database and encrypt it. The encrypted file will then be sent over an HTTP connection back to the command and control server. It is important to note that this software is intended for educational purposes only and should not be used for any illegal or malicious activities. Please use this software responsibly and ensure that you have the necessary permissions before using it on any system.
+
 Written in Go
 
 Target downloads binary executable, Cookie-Monster finds the session cookies and relays them back to CC.
@@ -21,6 +23,9 @@ C:\Users[user]\AppData\Local\Google\Chrome\User Data\Default\Cookies
 
 Notes:
     Cookies: SQLite 3.x database
+
+
+
 
 
 <h2>Disclaimer:</h2>
