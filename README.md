@@ -5,12 +5,12 @@ Welcome to "Cookie-Monster"! This software is designed to be installed by a vict
 By default, the Cookies database file used by Google Chrome is not encrypted. This means that if an attacker gains access to the file, they could potentially read the data stored in the cookies, including sensitive information such as login credentials and session tokens. This repository demonstrates exactly that.
 
 
-Target downloads binary executable, Cookie-Monster finds the session cookies, encrypts the contents with AES, then base64 encodes. Cooke-Monster then relays the base64 string to the hosts CC.
+## Here's how it works
 
-Steals a users session cookies to impersonate a browser for session hijacking.
+The Target downloads a binary executable, Cookie-Monster finds the session cookies, encrypts the contents with AES, then base64 encodes the file. Cookie-Monster then relays the base64 string back to the hosts CC.
 
 
-Google Chrome cookie locations:
+## Chrome cookie locations:
 
 <h3>macOS</h3>
 /Users/[user]/Library/Application Support/Google/Chrome/Default/Cookies
@@ -20,11 +20,6 @@ Google Chrome cookie locations:
 
 <h3>Windows</h3>
 C:\Users[user]\AppData\Local\Google\Chrome\User Data\Default\Cookies
-
-
-Notes:
-    Cookies: SQLite 3.x database
-
 
 
 
