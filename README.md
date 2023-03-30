@@ -1,13 +1,15 @@
 # Cookie Monster
 
-Welcome to "Cookie-Monster"! This software is designed to be installed by a victim, at the discretion of the attacker. Once installed, "Cookie-Monster" will locate the victim's sqlite3 database and encrypt it. The encrypted file will then be sent over an HTTP connection back to the command and control server. It is important to note that this software is intended for educational purposes only and should not be used for any illegal or malicious activities. Please use this software responsibly and ensure that you have the necessary permissions before using it on any system. 
+Welcome to "Cookie Monster"! This software is designed to be installed by a victim, at the discretion of the attacker. Once installed, "Cookie Monster" will locate the victim's sqlite3 database containing their session cookies and encrypt it. The encrypted file will then be sent over an HTTP connection back to the attackers web server. It is important to note that this software is intended for educational purposes only and should not be used for any illegal or malicious activities. Please use this software responsibly and ensure that you have the necessary permissions before using it on any system. 
 
-By default, the Cookies database file used by Google Chrome is not encrypted. This means that if an attacker gains access to the file, they could potentially read the data stored in the cookies, including sensitive information such as login credentials and session tokens. This repository demonstrates exactly that.
+## Background
+
+By default, the "Cookies" sqlite3 file used by Google Chrome to store session cookies is not encrypted. This means that if an attacker gains access to this file, they could potentially read the data stored in the users cookies, including sensitive information such as login credentials and session tokens. This repository demonstrates just that.
 
 
 ## Here's how it works
 
-The Target downloads a binary executable, Cookie-Monster finds the session cookies, encrypts the contents with AES, then base64 encodes the file. Cookie-Monster then relays the base64 string back to the hosts CC.
+The Target downloads the CookieMonster binary executable, Cookie-Monster finds the session cookies, encrypts the contents with AES-256, then base64 encodes the encrypted file. Cookie-Monster then relays the base64 string back to the attackers web server.
 
 
 ## Chrome cookie locations:
